@@ -9,8 +9,8 @@ import { Server } from './presentation/server';
 
 
 function main(){
-  // Server.start();
-  console.log(envs.PORT);
+  Server.start();
+  // console.log(envs.PORT);
 }
 
 

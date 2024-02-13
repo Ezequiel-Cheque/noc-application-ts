@@ -4,7 +4,7 @@ import fs from "fs";
 
 
 
-export class FileSystemDataSource implements LogDatasource{
+export class FileSystemDataSource implements LogDatasource {
 
     private readonly logPath = "logs/";
     private readonly allLogsPath = "logs/logs-low.log";

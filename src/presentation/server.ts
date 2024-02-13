@@ -20,6 +20,7 @@ export class Server {
         const url = 'http://localhost:3000';
         new CheckService(
           fileSystemLogRepository,
+          // undefined, undefined
           () => console.log( `${ url } is ok` ),
           ( error ) => console.log( error ),
         ).execute( url );

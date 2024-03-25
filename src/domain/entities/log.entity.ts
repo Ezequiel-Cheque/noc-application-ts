@@ -30,6 +30,7 @@ export class LogEntity {
 
     static fromJson(json: string): LogEntity {
         const {message, level, createdAt, origin} = JSON.parse(json);
+        
         if (!message) throw new Error("Message is required");
         if (!level) throw new Error("level is required");
 
@@ -43,4 +44,11 @@ export class LogEntity {
         return log;
     }
     
+    static fromObject (object : { [key: string]: any }): LogEntity{
+        const { message, level, createdAt, origin } = object;
+        const log = new LogEntity({
+            message, level, createdAt, origin
+        });
+        return log;
+    }
 }

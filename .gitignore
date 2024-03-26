@@ -4,6 +4,8 @@ logs/
 node_modules/
 dist/
 mongoDB/
+postgres/
+prisma/
 
 # Logs
 .DS_Store

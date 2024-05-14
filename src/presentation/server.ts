@@ -51,7 +51,7 @@ export class Server {
     CronService.createJob(
       '*/5 * * * * *',
       () => {
-        const url = 'http://wqdqdqwdgoogle.com'
+        const url = 'http://google.com'
         new CheckServiceMultiple(
           [
             fsLogRepository, mongoLogRepository, postgresLogRepository

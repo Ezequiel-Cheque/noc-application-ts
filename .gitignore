@@ -6,6 +6,8 @@ dist/
 mongoDB/
 postgres/
 prisma/
+mongoDB-test/
+postgres-test/
 
 # Logs
 .DS_Store

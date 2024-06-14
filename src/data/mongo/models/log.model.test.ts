@@ -29,6 +29,8 @@ describe("log.model.test.ts", () => {
             createdAt: expect.any(Date),
             id: expect.any(String)
         }) );
+
+        await LogModel.findByIdAndDelete( log.id );
     });
 
     test("Should return the same schema object", () => {

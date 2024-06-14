@@ -24,7 +24,7 @@ describe("init MongoDb", () => {
                 dbName: process.env.MONGO_DB_NAME!,
                 mongoUrl: "mongodb://ezequiel:password@localhosssst:27018"
             });
-            expect(true).toBe(false);
+            expect(connected).toBe(false);
         } catch(error) {
 
         }

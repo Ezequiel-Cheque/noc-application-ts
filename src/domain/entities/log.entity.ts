@@ -40,7 +40,7 @@ export class LogEntity {
             message,
             level,
             origin,
-            createdAt
+            createdAt: new Date(createdAt)
         });
         log.createdAt = new Date(createdAt);
         return log;

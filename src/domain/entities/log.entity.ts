@@ -3,7 +3,8 @@
 export enum LogSeverityLevel {
     low = "low",
     medium = "medium",
-    high = "high"
+    high = "high",
+    all = "all"
 }
 
 export interface LogEntityOptions {

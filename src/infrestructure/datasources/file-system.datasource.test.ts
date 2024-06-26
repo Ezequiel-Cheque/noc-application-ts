@@ -89,16 +89,41 @@ describe("FileSystemDataSource", () => {
         await logDatasource.saveLog(mediumLog);
         await logDatasource.saveLog(highLog);
         
-        // const getAllLogs = await logDatasource.getLogs(LogSeverityLevel.all);
+        const getAllLogs = await logDatasource.getLogs(LogSeverityLevel.all);
         const getLowLogs = await logDatasource.getLogs(LogSeverityLevel.low);
         const getMedoiumLogs = await logDatasource.getLogs(LogSeverityLevel.medium);
         const getHighLogs = await logDatasource.getLogs(LogSeverityLevel.high);
         
-        // expect(getAllLogs).toEqual(expect.arrayContaining([lowLog, mediumLog, highLog]));
-        // expect(getLowLogs).toEqual(expect.arrayContaining([lowLog]));
-        // expect(getMedoiumLogs).toEqual(expect.arrayContaining([mediumLog]));
-        // expect(getHighLogs).toEqual(expect.arrayContaining([highLog]));
+        expect(getAllLogs).toEqual(expect.arrayContaining([lowLog, mediumLog, highLog]));
+        expect(getLowLogs).toEqual(expect.arrayContaining([lowLog]));
+        expect(getMedoiumLogs).toEqual(expect.arrayContaining([mediumLog]));
+        expect(getHighLogs).toEqual(expect.arrayContaining([highLog]));
         
+    });
+
+
+    test("Should not throw an error if path exists", async () => {
+        new FileSystemDataSource();
+        new FileSystemDataSource();
+
+        expect(true).toBeTruthy();
+
+    });
+
+    test("Should throw an error if security level is not defined", async () => {
+
+        const logDatasource = new FileSystemDataSource();
+        const customSeverityLevel = 'SUPER_MEGA_HIGH' as LogSeverityLevel;
+
+        try {
+            await logDatasource.getLogs(customSeverityLevel);
+            expect(true).toBeFalsy();
+        } catch (error) {
+            const errorString = `${ error }`;
+
+            expect(errorString).toContain(`${ customSeverityLevel } not implemented`);
+        }
+
     });
 
 })
